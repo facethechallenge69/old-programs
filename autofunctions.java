@@ -25,7 +25,8 @@ public class autofunctions
     private DcMotor armmotormold;
     private DcMotor motorArmcirc_left;
 
-
+//yoyoyoyoyo
+    
     private Servo arm;
     private Servo grootservo;
 
