@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.oldprograms;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.NormalizedColorSensor;
 import com.qualcomm.robotcore.hardware.Servo;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
-import org.firstinspires.ftc.teamcode.autofunctions;
+import org.firstinspires.ftc.teamcode.oldprograms.autofunctions;
 
 @TeleOp(name = "1/26 Autonomous Test Program", group = "Tutorials")
 public class Auto_TEST extends LinearOpMode

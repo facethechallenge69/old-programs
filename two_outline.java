@@ -1,7 +1,7 @@
 //Program for Autonomous Functions for the FTC 2018 - 2019 Rover Ruckus Season
 
 //Package for all of the functions and code
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.oldprograms;
 
 //Importing op mode Functions
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
@@ -27,7 +27,7 @@ import static android.graphics.Color.WHITE;
 import static android.graphics.Color.YELLOW;
 
 //Importing AutoFunctions
-import org.firstinspires.ftc.teamcode.autofunctions;
+import org.firstinspires.ftc.teamcode.oldprograms.autofunctions;
 
 //Naming the Program
 @Autonomous (name = "Frick the Feds", group = "Tutorials")

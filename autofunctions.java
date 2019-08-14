@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.oldprograms;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
@@ -26,7 +26,7 @@ public class autofunctions
     private DcMotor motorArmcirc_left;
 
 //yoyoyoyoyo
-    
+
     private Servo arm;
     private Servo grootservo;
 
