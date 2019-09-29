@@ -5,6 +5,7 @@ package org.firstinspires.ftc.teamcode.oldprograms;
 
 //Importing op mode Functions
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 //Importing dcmotor and servo Functions
@@ -26,8 +27,10 @@ import android.os.SystemClock;
 import org.firstinspires.ftc.teamcode.oldprograms.autofunctions;
 
 //Naming the Program
+
 @Autonomous (name = "BlueZone", group = "Tutorials")
-public class BlueZoneSide extends LinearOpMode {
+@Disabled
+public class BlueZone extends LinearOpMode {
 
     //Declaring the motors and servos and other things
     private DcMotor motorL_Up;
