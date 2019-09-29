@@ -27,7 +27,7 @@ import org.firstinspires.ftc.teamcode.oldprograms.autofunctions;
 
 //Naming the Program
 @Autonomous (name = "BlueZone", group = "Tutorials")
-public class BlueZoneSide extends LinearOpMode {
+public class BlueZone extends LinearOpMode {
 
     //Declaring the motors and servos and other things
     private DcMotor motorL_Up;

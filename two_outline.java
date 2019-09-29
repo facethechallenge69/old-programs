@@ -30,7 +30,7 @@ import static android.graphics.Color.YELLOW;
 import org.firstinspires.ftc.teamcode.oldprograms.autofunctions;
 
 //Naming the Program
-@Autonomous (name = "Frick the Feds", group = "Tutorials")
+/*@Autonomous (name = "Frick the Feds", group = "Tutorials")
 public class two_outline extends LinearOpMode {
 
     //Declaring the motors and servos and other things
@@ -189,3 +189,4 @@ public class two_outline extends LinearOpMode {
     }
 }
 
+*/
