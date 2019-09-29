@@ -5,6 +5,7 @@ package org.firstinspires.ftc.teamcode.oldprograms;
 
 //Importing op mode Functions
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 //Importing dcmotor and servo Functions
@@ -30,7 +31,13 @@ import static android.graphics.Color.YELLOW;
 import org.firstinspires.ftc.teamcode.oldprograms.autofunctions;
 
 //Naming the Program
+<<<<<<< HEAD
 /*@Autonomous (name = "Frick the Feds", group = "Tutorials")
+=======
+
+@Autonomous (name = "Frick the Feds", group = "Tutorials")
+@Disabled
+>>>>>>> a1547ba04a87817fa4895575652d42bd7a943e4d
 public class two_outline extends LinearOpMode {
 
     //Declaring the motors and servos and other things
@@ -120,7 +127,7 @@ public class two_outline extends LinearOpMode {
         motorArmcirc_left.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
 
         //Initializing the motors and servos for auto_functions
-        auto_functions.Initialize(motorleftback,
+        /*auto_functions.Initialize(motorleftback,
                 motorL_Up,
 
                 motorrightback,
@@ -133,7 +140,7 @@ public class two_outline extends LinearOpMode {
                 colorSensor2,
                 arm,
                 telemetry);
-
+*/
         //Waiting for the user to press the start button
         waitForStart();
 

@@ -1,12 +1,15 @@
 package org.firstinspires.ftc.teamcode.oldprograms;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 
+
 @TeleOp(name = "brick tele brickz", group = "Tutorials")
+@Disabled
 public class
 
 yp extends LinearOpMode {
