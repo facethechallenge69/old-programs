@@ -29,10 +29,9 @@ import org.firstinspires.ftc.teamcode.oldprograms.autofunctions;
 //Naming the Program
 
 @Autonomous (name = "BlueZone", group = "Tutorials")
-<<<<<<< HEAD
-=======
+
 @Disabled
->>>>>>> a1547ba04a87817fa4895575652d42bd7a943e4d
+
 public class BlueZone extends LinearOpMode {
 
     //Declaring the motors and servos and other things

@@ -31,9 +31,9 @@ import static android.graphics.Color.YELLOW;
 import org.firstinspires.ftc.teamcode.oldprograms.autofunctions;
 
 //Naming the Program
-<<<<<<< HEAD
+
 /*@Autonomous (name = "Frick the Feds", group = "Tutorials")
-=======
+
 
 @Autonomous (name = "Frick the Feds", group = "Tutorials")
 @Disabled
@@ -142,7 +142,7 @@ public class two_outline extends LinearOpMode {
                 telemetry);
 */
         //Waiting for the user to press the start button
-        waitForStart();
+     /*   waitForStart();
 
         //AUTONOMOUS STARTS HERE
 
@@ -195,5 +195,4 @@ public class two_outline extends LinearOpMode {
         auto_functions.DriveForward(1, -11069);
     }
 }
-
 */
