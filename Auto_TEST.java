@@ -1,6 +1,7 @@
 
 package org.firstinspires.ftc.teamcode.oldprograms;
 
+import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
@@ -10,30 +11,30 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.NormalizedColorSensor;
 import com.qualcomm.robotcore.hardware.Servo;
 import org.firstinspires.ftc.robotcore.external.Telemetry;
-import org.firstinspires.ftc.teamcode.oldprograms.autofunctions;
+import org.firstinspires.ftc.teamcode.programs2021.autofunctions;
 
-@TeleOp(name = "1/26 Autonomous Test Program", group = "Tutorials")
+@TeleOp(name = "Autonomous Test Program", group = "Tutorials")
 @Disabled
 public class Auto_TEST extends LinearOpMode
 {
     private DcMotor motorL_Up;
-    private DcMotor motorleftback;
-    private DcMotor motorrightfront;
-    private DcMotor motorrightback;
-    private DcMotor armmotorhanging;
-    private DcMotor armmotor;
-    private DcMotor armmotormold;
-    private DcMotor armmotorud;
-    private Servo arm;
-    private DcMotor motorArmcirc_left;
+    private DcMotor motorL_Down;
+    private DcMotor motorR_Up;
+    private DcMotor motorR_Down;
 
-    NormalizedColorSensor colorSensor;
+    private DcMotor ArmMotor_Left;
+    private DcMotor ArmMotor_Right;
+
+    private DcMotor motor_bobber;
+
+    NormalizedColorSensor colorSensor1;
     NormalizedColorSensor colorSensor2;
 
+    BNO055IMU imu;
 
-    private Servo ClawServo;
+    private Servo grabber_servo;
 
-    autofunctions auto_functions = new autofunctions();
+    org.firstinspires.ftc.teamcode.programs2021.autofunctions auto_functions = new autofunctions();
 
 
     //  Telemetry telemetry = new Telemetry();
@@ -44,43 +45,39 @@ public class Auto_TEST extends LinearOpMode
     {
         //Receiving the necessary hardware for the motors
         motorL_Up = hardwareMap.dcMotor.get("left_motor_up");
-        motorleftback = hardwareMap.dcMotor.get("left_motor_d");
-        motorrightfront = hardwareMap.dcMotor.get("right_motor_up");
-        motorrightback = hardwareMap.dcMotor.get("right_motor_d");
+        motorL_Down = hardwareMap.dcMotor.get("left_motor_d");
+        motorR_Up = hardwareMap.dcMotor.get("right_motor_up");
+        motorR_Down = hardwareMap.dcMotor.get("right_motor_d");
 
-        armmotormold = hardwareMap.dcMotor.get("arm_claw");
-        armmotorud = hardwareMap.dcMotor.get("motor_lift");
-        armmotor = hardwareMap.dcMotor.get("arm_arc");
+        grabber_servo = hardwareMap.servo.get("servo_grabber");
 
-        arm = hardwareMap.servo.get("arm_servo");
+        ArmMotor_Left = hardwareMap.dcMotor.get("LaunchMotor_Left");
+        ArmMotor_Right = hardwareMap.dcMotor.get("LaunchMotor_Left");
+
+        motor_bobber = hardwareMap.dcMotor.get("bobber_motor");
 
         int encoder_tics = 0;
         double encoder_speed = 0;
 
         //Setting the behavior for the motors to float.
-        motorrightback.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
-        motorleftback.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
-        motorrightfront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
-        motorL_Up.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+        motorR_Down.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        motorL_Down.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        motorR_Up.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        motorL_Up.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
-
-        armmotorud.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        armmotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
-
-
-/*        auto_functions.Initialize(motorleftback,
+        auto_functions.Initialize(motorL_Down,
+                motorR_Down,
+                motorR_Up,
                 motorL_Up,
-                motorrightback,
-                motorrightfront,
-                armmotorud,
-                motorArmcirc_left,
-                armmotor,
-                armmotormold,
-                colorSensor,
+                ArmMotor_Left,
+                ArmMotor_Right,
+                grabber_servo,
+                motor_bobber,
+                imu,
+                colorSensor1,
                 colorSensor2,
-                arm,
                 telemetry);
-*/
+
         //Waiting for the user to press start
         waitForStart();
 
@@ -88,7 +85,6 @@ public class Auto_TEST extends LinearOpMode
         {
             if (gamepad1.a)
             {
-                encoder_tics += 100;
                 sleep(100);
             }
             if (gamepad1.b)
@@ -118,14 +114,6 @@ public class Auto_TEST extends LinearOpMode
             {
                 auto_functions.TurnRight(encoder_speed, encoder_tics);
             }
-            if(gamepad1.right_bumper)
-            {
-                auto_functions.Raise(1,encoder_tics);
-            }
-            if(gamepad1.left_bumper)
-            {
-                auto_functions.ARaise(1,encoder_tics);
-            }
             if (gamepad2.dpad_right)
             {
                 auto_functions.StrafeRight(1, encoder_tics);
@@ -134,14 +122,7 @@ public class Auto_TEST extends LinearOpMode
             {
                 auto_functions.StrafeLeft(1, encoder_tics);
             }
-            if(gamepad2.left_bumper)
-            {
-                auto_functions.Grab();
-            }
-            if(gamepad2.right_bumper)
-            {
-                auto_functions.Release();
-            }
+
 
             telemetry.addData("encoder distance %d", encoder_tics);
             telemetry.addData("encoder speed %f", encoder_speed);
