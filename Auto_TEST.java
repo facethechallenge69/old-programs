@@ -49,12 +49,12 @@ public class Auto_TEST extends LinearOpMode
         motorR_Up = hardwareMap.dcMotor.get("right_motor_up");
         motorR_Down = hardwareMap.dcMotor.get("right_motor_d");
 
-        grabber_servo = hardwareMap.servo.get("servo_grabber");
+        grabber_servo = hardwareMap.servo.get("sg");
 
         ArmMotor_Left = hardwareMap.dcMotor.get("LaunchMotor_Left");
         ArmMotor_Right = hardwareMap.dcMotor.get("LaunchMotor_Left");
 
-        motor_bobber = hardwareMap.dcMotor.get("bobber_motor");
+        motor_bobber = hardwareMap.dcMotor.get("am");
 
         int encoder_tics = 0;
         double encoder_speed = 0;
